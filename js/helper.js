@@ -47,7 +47,7 @@ var HTMLschoolName = "<a href='#'>%data%";
 var HTMLschoolDegree = " -- %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br>Major: %data%</em>"
+var HTMLschoolMajor = "<em><br>Major: %data%</em>";
 
 var HTMLonlineClasses = "<h3>Online Classes</h3>";
 var HTMLonlineTitle = "<a href='#'>%data%";
@@ -67,7 +67,7 @@ $(document).ready(function() {
     var iName = inName() || function(){};
     $('#name').html(iName);  
   });
-})
+});
 
 
 
@@ -112,9 +112,9 @@ function initializeMap() {
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
+  //<div id="map">
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
+   
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -126,7 +126,7 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    locations.push(bio.Contact.location);
     
     // iterates through school locations and appends each location to
     // the locations array
@@ -173,6 +173,7 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      
     });
 
     // this is where the pin actually gets added to the map.
@@ -189,8 +190,8 @@ function initializeMap() {
   If so, it creates a new map marker for that location.
   */
   function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0])
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      createMapMarker(results[0]);
     }
   }
 
@@ -210,7 +211,7 @@ function initializeMap() {
       // the search request object
       var request = {
         query: locations[place]
-      }
+      };
 
       // Actually searches the Google Maps API for location data and runs the callback 
       // function with the search results after each search.
@@ -235,11 +236,11 @@ Uncomment all the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window 
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
