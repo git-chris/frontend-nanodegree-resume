@@ -15,6 +15,16 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <scripts> for JavaScript files to build interactions.
 -->
 <head>
+   <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+   <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'en_US'}</script>
+   
+   
+   <!-- http://tristanedwards.me/sweetalert A more beuatifull alert that javascript alert() -->
+   <script src="js/sweet-alert.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+   
+   
+   
   <link href="css/style.css" rel="stylesheet" type="text/css">
 
   <!--
@@ -56,33 +66,44 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content">
-      <ul id="topContacts" class='flex-box'></ul>
+    <div id="left">
+    <div id="header"></div>
+    <h2>Let's Connect</h2> 
+    <div id="letsConnect" class="flex-box"></div>
+    <div id="share">
+        <script type="IN/Share" data-counter="top"></script>
+        <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
+    </div>
     </div>
     
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
+    
+    <div id="container">    
+        <div id="workExperience">
+          <h2>Work Experience</h2>
+        </div>
+    <hr>
+        <div id="projects">
+          <h2>Projects</h2>
+        </div>
+    <hr>
+        <div id="education">
+           <h2>Education</h2>
+        </div>    
+    <hr>
+        <h2>My Skills</h2>
+        <div id="chart"></div>
+    
+        <div id="mapDiv">
+            <h2>Where I've Lived and Worked</h2>
+        </div>   
+    
     </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="skillsChart">
-      <h2>Skills Chart</h2>
-      <div id="chart"></div>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-      <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+    
+    
+   </div>  
+    
+    
+    <h6 class="site-footer_copyright">&copy 2014 Balafoutis</h6>
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
@@ -119,7 +140,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     document.getElementById("topContacts").style.display=== none;
   }
   if(document.getElementsByTagName("h1").length === 0) {
-    document.getElementById("header").style.display = "none";
+    document.getElementById("header").style.display = none;
   }
   if(document.getElementsByClassName("work-entry").length === 0) {
     document.getElementById("workExperience").style.display=== none;
@@ -129,19 +150,15 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   }
   if(document.getElementsByClassName("education-entry").length === 0) {
     document.getElementById("education").style.display=== none;
-  }
+  } 
   if(document.getElementsByClassName("skills-entry").length === 0) {
-    document.getElementById("skillsChart").style.display=== none;
+    document.getElementById("skillsChart").style.display===none;
   }
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("letsConnect").style.display=== none;
   }
   if(document.getElementById("map") === undefined) {
-    document.getElementById("mapDiv").style.display=== none;
+    document.getElementById("mapDiv").style.display== none;
   }
-  </script>
-  
- 
-  
- 
+  </script> 
 </body>

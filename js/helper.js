@@ -15,19 +15,18 @@ replace the %data% placeholder text you see in them.
 var HTMLheaderName = "<h1 id='name'>%data%</h1>";
 var HTMLheaderRole = "<span>%data%</span><hr/>";
 
-var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
-var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile</span><span class='white-text'>%data%</span></li>";
-var HTMLemail = "<li class='flex-item'><span class='orange-text'>email</span><span class='white-text'>%data%</span></li>";
-var HTMLtwitter = "<li class='flex-item'><span class='orange-text'>twitter</span><span class='white-text'>%data%</span></li>";
-var HTMLgithub = "<li class='flex-item'><span class='orange-text'>github</span><span class='white-text'>%data%</span></li>";
-var HTMLblog = "<li class='flex-item'><span class='orange-text'>blog</span><span class='white-text'>%data%</span></li>";
-var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location</span><span class='white-text'>%data%</span></li>";
+//var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
+var HTMLmobile = "<span class='flex-item'><img id='mobileNumber' src='images/mobile.png' alt='mobileNumber'></span>";
+var HTMLemail = "<span class='flex-item'><a href='mailto:%data%'><img src='images/email.png'></a></span>";
+//var HTMLtwitter = "<li class='flex-item'><span class='orange-text'>twitter</span><span class='white-text'>%data%</span></li>";
+var HTMLgithub = "<span class='flex-item'><a href='%data%'><img src='images/github.png'></a></span>";
+//var HTMLblog = "<li class='flex-item'><span class='orange-text'>blog</span><span class='white-text'>%data%</span></li>";
+var HTMLlocation = "<span class='flex-item'>location</span><span>%data%</span>";
 
 var HTMLbioPic = "<img src='%data%' class='biopic'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
 
-var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
-var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
+
 
 var HTMLworkStart = "<div class='work-entry'></div>";
 var HTMLworkEmployer = "<a href='#'>%data%";
@@ -43,17 +42,17 @@ var HTMLprojectDescription = "<p><br>%data%</p>";
 var HTMLprojectImage = "<img src='%data%'>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
-var HTMLschoolName = "<a href='#'>%data%";
-var HTMLschoolDegree = " -- %data%</a>";
+var HTMLschoolName = "<div><a href='#'>%data%</div>";
+var HTMLschoolDegree = " - %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>";
 
-var HTMLonlineClasses = "<h3>Online Classes</h3>";
-var HTMLonlineTitle = "<a href='#'>%data%";
-var HTMLonlineSchool = " - %data%</a>";
+var HTMLonlineClassesStart = "<div class='education-entry'><h2>Online Classes</h2></div>";
+var HTMLonlineSchool = "<div class='text'>%data%</div>";
+var HTMLonlineTitle = "<div class='text'><a href='#'>%data%</a></div>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
-var HTMLonlineURL = "<br><a href='#'>%data%</a>";
+var HTMLonlineURL = "<div><p>%data%</p></div>";
 
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
@@ -104,17 +103,17 @@ var map;    // declares a global map variable
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
-
+  
   var locations;        
 
-  var mapOptions = {
-    disableDefaultUI: true
+  var mapOptions={        
+      Zoom : 4 
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   //<div id="map">
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-   
+  map = new google.maps.Map(document.querySelector('#map'),mapOptions);
+  
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -160,7 +159,7 @@ function initializeMap() {
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name      
     });
     
     // infoWindows are the little helper windows that open when you click
@@ -173,14 +172,16 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
-      
+      map.setZoom(11);
+      map.setCenter(marker.getPosition());
+      infoWindow.open(map,marker);      
     });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
-    map.fitBounds(bounds);
+   // map.fitBounds(bounds); I wanted a broad first image of the map so I set zoom to 4
     // center the map
     map.setCenter(bounds.getCenter());
   }
@@ -221,6 +222,7 @@ function initializeMap() {
 
   // Sets the boundaries of the map based on pin locations
   window.mapBounds = new google.maps.LatLngBounds();
+  
 
   // locations is an array of location strings returned from locationFinder()
   locations = locationFinder();

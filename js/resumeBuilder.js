@@ -1,12 +1,12 @@
 var bio = {
     "name" : "Christos Balafoutis",    
     "role":"Web Developer" ,
-    "WelcomeMessage":"1+1=10.......What? Is there something wrong? ",
+    "WelcomeMessage":"About me:<br>After I finished my Studies in Electrical engineering I have been focusing on Web Development and Web app Security. Hopefully, I will be able to master both at a respectable level and develop complete Websites and apps!",
     "image":"images/fry.jpg",
     "Contact":{
         "email":"chrisbalaf1987@gmail.com",
         "mobile":"999999999",
-        "github":"git-chris",
+        "github":"https://github.com/git-chris",
         "location":"Patras"           //Did not include skills in bio because I used seperate graph
     }         
 };
@@ -34,25 +34,29 @@ var work={"jobs":[{
 
 var education={"schools":[{
             "name":"5th Public Highschool of Patras",
-            "location":"Patra,Achaia",
-            "degree":"Highschool Diploma",
-            "major":"None",
+            "location":"Patras",
+            "degree":"Highschool Diploma",            
             "dates":"2002-2005",
             "url":" "},
         {
-            "name":"Polytechnic School of University of Patras",
+            "name":"Polytechnic School of University of Patras",            
             "location":"Patras",
-            "degree":"Diploma(5 year Studies)",
-            "major":"Electrical Engineering and Computers Technology",
+            "degree":"Diploma in Electrical Engineering and Computers Technology(5 year Studies)",            
             "dates":"2006-2013",
             "url":"http://www.ece.upatras.gr/"
         } 
 ],
             "onlineCourses":[{
-                "title":"Front-end Web Development",
+                "title":"Intro to Html/CSS",
                 "school":"Udacity",
-                "dates":"10/2014-Present",
-                "url":"http://www.udacity.com"
+                "dates":"10/2014",
+                "url":"https://www.udacity.com"                
+            },
+            {
+                "title":"Javascript Basics",
+                "school":"Udacity",
+                "dates":"10/2014",
+                "url":"https://www.udacity.com"
             }
         ]
 };
@@ -64,7 +68,7 @@ var projects ={"projects":[{
             "images":""
             },
             {
-                "title":"CV Web Page",
+                "title":"Interactive Resume",
                 "dates":"10/2014",
                 "description":"My personalised CV!",
                 "images":""
@@ -80,22 +84,34 @@ bio.display=function(){
     $("#header").append(HTMLWelcomeMsg.replace("%data%",bio.WelcomeMessage)); 
     $("#header").prepend(HTMLbioPic.replace("%data%",bio.image));    
     $("#letsConnect").append(HTMLemail.replace("%data%",bio.Contact.email));
-    $("#letsConnect").append(HTMLmobile.replace("%data%",bio.Contact.mobile));
     $("#letsConnect").append(HTMLgithub.replace("%data%",bio.Contact.github));
+    $("#letsConnect").append(HTMLmobile);    
+    $( "#mobileNumber" ).click(function() {
+      swal({title:"Mobile-Number:" + bio.Contact.mobile,text:"Call me from 09:00 to 14:00 Eastern EU time.",
+          type:"info"
+      });
+    });
 };
 
 education.display=function(){
  for(var school in education.schools){
     $("#education").append(HTMLschoolStart);
     var formattedName=HTMLschoolName.replace("%data%",education.schools[school].name);
-    var formattedDegree=HTMLschoolDegree.replace("%data%",education.schools[school].degree);
-    var formattedMajor=HTMLschoolMajor.replace("%data%",education.schools[school].major);
-    $(".education-entry:last").append(formattedName,formattedDegree,formattedMajor);
+    var formattedDegree=HTMLschoolDegree.replace("%data%",education.schools[school].degree);    
+    $(".education-entry:last").append(formattedName,formattedDegree);
     var formattedDates=HTMLschoolDates.replace("%data%",education.schools[school].dates);
     $(".education-entry:last").append(formattedDates);
     var formattedLocation=HTMLschoolLocation.replace("%data%",education.schools[school].location);
     $(".education-entry:last").append(formattedLocation);
 };   
+     $("#education").append(HTMLonlineClassesStart);
+     for(var course in education.onlineCourses){    
+     var formattedtittle=HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
+     var formattedschool=HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
+     var formattedurl=HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
+     var formattedDates=HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);     
+     $(".education-entry:last").append(formattedtittle,formattedschool,formattedDates,formattedurl);
+ };
 };
 
 work.display=function(){

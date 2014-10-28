@@ -3,19 +3,18 @@
 
 $(function(){
   $('#chart').radarChart({
-    size: [500, 400],
+    size: [430, 350],
     step: 1,
-    title: "My Skills",
+    title:"",
     values: {
-      "JavaScript": 4,
+      "JS": 4,
       "C#": 4.5,
       "jQuery": 2,
       "PHP": 3.5,
-      "Java": 2,
-      "Problem Solving": 4,
+      "Java": 2,      
       "Python":3
     },
-    showAxisLabels: true
+    showAxisLabels: true    
   });
 });
 
@@ -29,7 +28,7 @@ $(function(){
         showAxisLabels: false,
         title: "Untitled",
         step: 1,
-        size: [300,300],
+        size: [200,200],
         values: {},
         color: [0,128,255]
       },settings);
@@ -176,7 +175,7 @@ $(function(){
       
       
       this.newCanvas('title',1000);
-      this.cxt.font = "bold 24px Verdana";
+      this.cxt.font = "bold 24px Verdana";      
       this.cxt.fillText(this.settings.title, 10, 30); 
     };
     
@@ -191,3 +190,5 @@ $(function(){
   };
   
 })(jQuery);
+
+Chart.defaults.global.responsive = true;
