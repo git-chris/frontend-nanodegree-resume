@@ -26,8 +26,6 @@ var HTMLlocation = "<span class='flex-item'>location</span><span>%data%</span>";
 var HTMLbioPic = "<img src='%data%' class='biopic'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
 
-
-
 var HTMLworkStart = "<div class='work-entry'></div>";
 var HTMLworkEmployer = "<a href='#'>%data%";
 var HTMLworkTitle = " - %data%</a>";
@@ -57,7 +55,6 @@ var HTMLonlineURL = "<div><p>%data%</p></div>";
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
 
-
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
@@ -67,8 +64,6 @@ $(document).ready(function() {
     $('#name').html(iName);  
   });
 });
-
-
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -89,15 +84,12 @@ $(document).click(function(loc) {
   // your code goes here!
 });
 
-
-
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
 See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -107,13 +99,12 @@ function initializeMap() {
   var locations;        
 
   var mapOptions={        
-      Zoom : 4 
+      Zoom : 4  /*Changed the zoom because I have one location only*/
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   //<div id="map">
-  map = new google.maps.Map(document.querySelector('#map'),mapOptions);
-  
+  map = new google.maps.Map(document.querySelector('#map'),mapOptions);  
 
   /*
   locationFinder() returns an array of every location string from the JSONs

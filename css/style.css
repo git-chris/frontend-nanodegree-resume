@@ -19,9 +19,9 @@ html {
 }
 
 .biopic {
-float: left;
-width: 100px;
-margin-right: 10px;
+    float: left;
+    width: 100px;
+    margin-right: 10px;
 }
 
 #container{    
@@ -30,53 +30,53 @@ margin-right: 10px;
 }
 
 .date-text {
-font-style: italic;
-font-size: 14px;
-color: burlywood;
-text-align: left;
+    font-style: italic;
+    font-size: 14px;
+    color: burlywood;
+    text-align: left;
 }
 .location-text {
-font-style: italic;
-font-size: 14px;
-color: #9370DB;
-text-align: right;
-margin-bottom: 20px;
+    font-style: italic;
+    font-size: 14px;
+    color: #9370DB;
+    text-align: right;
+    margin-bottom: 20px;
 }
 
 p {
-font-size: 14px;
-color: #9370DB;
-text-align: right;
-font-style: italic;
-margin-top: 0;
-margin-bottom: 20px;
+    font-size: 14px;
+    color: #9370DB;
+    text-align: right;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 a {
-color: #1199C3;
-text-decoration: none;
-margin-top: 5px;
+    color: #1199C3;
+    text-decoration: none;
+    margin-top: 5px;
 }
 
 container.div{
- margin-top: 30px;
+    margin-top: 30px;
 }
 
 #chart{
-  text-align: left;
-  box-shadow: 0px 2px 8px rgba(0,0,0,.2);
-  border: 1px solid #aaa;  
-  background: lightgrey;  
+    text-align: left;
+    box-shadow: 0px 2px 8px rgba(0,0,0,.2);
+    border: 1px solid #aaa;  
+    background: lightgrey;  
 }
 
 #map {
-height: 100%;
+    height: 100%;
 }
 
 #mapDiv {
-height: 300px;
-width: 100%;
-padding-bottom: 5%;
+    height: 300px;
+    width: 100%;
+    padding-bottom: 5%;
 }
 
 #letsConnect img{

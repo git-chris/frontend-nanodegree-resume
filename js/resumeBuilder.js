@@ -11,8 +11,6 @@ var bio = {
     }         
 };
 
-
-
 var work={"jobs":[{
             "employer":"OTE AE",
             "title":"Telephone Assistance",
@@ -29,8 +27,6 @@ var work={"jobs":[{
             }        
 ]
 };
-
-
 
 var education={"schools":[{
             "name":"5th Public Highschool of Patras",
@@ -76,7 +72,6 @@ var projects ={"projects":[{
         
 ]};
 
-
 bio.display=function(){
     var formattedName=HTMLheaderName.replace("%data%",bio.name);
     var formattedRole=HTMLheaderRole.replace("%data%",bio.role);
@@ -114,7 +109,7 @@ education.display=function(){
  };
 };
 
-work.display=function(){
+work.display=function(){    
 for(var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
@@ -124,11 +119,10 @@ for(var job in work.jobs){
     var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
     var formatteddescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
-    $(".work-entry:last").append(formatteddescription);
+    $(".work-entry:last").append(formatteddescription);    
 };
+$("#mapDiv").append(googleMap);
 };
-
-
 
 projects.display=function(){
     for(var project in projects.projects){
@@ -146,6 +140,3 @@ bio.display();
 education.display();
 projects.display();
 work.display();
-
-
-$("#mapDiv").append(googleMap);

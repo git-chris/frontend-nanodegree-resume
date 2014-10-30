@@ -15,18 +15,16 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <scripts> for JavaScript files to build interactions.
 -->
 <head>
-   <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-   <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'en_US'}</script>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8">
+  <!-- Scripts from LinkedIn and Google for share buttons -->
+  <script src="//platform.linkedin.com/in.js">lang: 'en_US'</script>
+  <script src="https://apis.google.com/js/platform.js">{lang: 'en_US'}</script>   
    
-   
-   <!-- http://tristanedwards.me/sweetalert A more beuatifull alert that javascript alert() -->
-   <script src="js/sweet-alert.min.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
-   
-   
-   
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-
+  <!-- http://tristanedwards.me/sweetalert A more beuatifull alert that javascript alert() -->
+  <script src="js/sweet-alert.min.js"></script>
+  <link rel="stylesheet" href="css/sweet-alert.css">   
+  <link href="css/style.css" rel="stylesheet">
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
   Document Object Model (DOM). The DOM is a tree that contains information
@@ -52,67 +50,59 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> 
-
-  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>   
+  <title>Balafoutis Resume</title>
 </head>
-<body>
-   
-  <div id="main">  
-
+<body>   
+  <div id="main">
     <!--
     Everything from here to the <script> tag below is the skeleton of your
     website. Your code will add information to each of the sections of the
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="left">
-    <div id="header"></div>
-    <h2>Let's Connect</h2> 
-    <div id="letsConnect" class="flex-box"></div>
-    <div id="share">
-        <script type="IN/Share" data-counter="top"></script>
-        <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
-    </div>
-    </div>
-    
+  <aside id="left">
+        <header id="header"></header>
+        <h2>Let's Connect</h2> 
+        <div id="letsConnect" class="flex-box"></div>
+        <div id="share">
+            <script type="IN/Share" data-counter="top"></script>
+            <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
+        </div>
+    </aside> 
     
     <div id="container">    
-        <div id="workExperience">
+        <section id="workExperience">
           <h2>Work Experience</h2>
-        </div>
-    <hr>
-        <div id="projects">
+        </section>
+        <hr>
+        <section id="projects">
           <h2>Projects</h2>
-        </div>
-    <hr>
-        <div id="education">
+        </section>
+        <hr>
+        <section id="education">
            <h2>Education</h2>
-        </div>    
-    <hr>
-        <h2>My Skills</h2>
-        <div id="chart"></div>
-    
-        <div id="mapDiv">
+        </section>    
+        <hr>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div id="chart"></div>
+        </section>
+        <section id="mapDiv">
             <h2>Where I've Lived and Worked</h2>
-        </div>   
-    
-    </div>
-    
-    
-   </div>  
-    
-    
-    <h6 class="site-footer_copyright">&copy 2014 Balafoutis</h6>
-
+        </section>   
+    </div>  
+   </div>
+   <footer>
+    <h6 class="site-footer_copyright">&copy; 2014 Balafoutis</h6>
+   </footer>
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
   writing. In resumeBuilder.js, you'll be writing code that builds the resume
   dynamically when this website, index.html, is opened.
   -->
   <script src="js/resumeBuilder.js"></script>
-
-
+  
   <!--
   These scripts are written in JavaScript. You'll be breaking them down as part of
   a quiz. Essentially, the next few lines are checking to see if you have not
