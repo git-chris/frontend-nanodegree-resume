@@ -73,7 +73,7 @@ var projects ={"projects":[{
 ]};
 
 bio.display=function(){
-    var formattedName=HTMLheaderName.replace("%data%",bio.name);
+ var formattedName=HTMLheaderName.replace("%data%",bio.name);
     var formattedRole=HTMLheaderRole.replace("%data%",bio.role);
     $("#header").append(formattedName,formattedRole);              
     $("#header").append(HTMLWelcomeMsg.replace("%data%",bio.WelcomeMessage)); 
@@ -85,7 +85,7 @@ bio.display=function(){
       swal({title:"Mobile-Number:" + bio.Contact.mobile,text:"Call me from 09:00 to 14:00 Eastern EU time.",
           type:"info"
       });
-    });
+    });   
 };
 
 education.display=function(){
@@ -110,7 +110,7 @@ education.display=function(){
 };
 
 work.display=function(){    
-for(var job in work.jobs){
+  for(var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
     var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
@@ -120,12 +120,12 @@ for(var job in work.jobs){
     $(".work-entry:last").append(formattedDates);
     var formatteddescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
     $(".work-entry:last").append(formatteddescription);    
-};
-$("#mapDiv").append(googleMap);
+  };
+  $("#mapDiv").append(googleMap);
 };
 
 projects.display=function(){
-    for(var project in projects.projects){
+ for(var project in projects.projects){
     $("#projects").append(HTMLprojectStart);    
     var formattedTitle=HTMLprojectTitle.replace("%data%",projects.projects[project].title);    
     $(".project-entry:last").append(formattedTitle);
@@ -133,7 +133,7 @@ projects.display=function(){
     $(".project-entry:last").append(formattedDates);
     var formatteddescription=HTMLprojectDescription.replace("%data%",projects.projects[project].description);
     $(".project-entry:last").append(formatteddescription);
-    }
+    }   
 };
 
 bio.display();
