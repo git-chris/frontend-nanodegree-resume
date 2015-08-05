@@ -10,8 +10,6 @@ html {
   color:  burlywood;
 }
 
-
-
 #left{
     float: left; 
     max-width: 30%; /*first column of the page*/
