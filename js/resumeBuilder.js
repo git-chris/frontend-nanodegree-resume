@@ -85,22 +85,24 @@ var projects ={"projects":[{
             "title":"Portofolio",
             "dates":"10/2014",
             "description":"An html page where my work is presented!",
-            "images":""
+            "link":" http://git-chris.github.io/Portofolio"
             },
             {
                 "title":"Interactive Resume",
                 "dates":"10/2014",
                 "description":"My personalised CV!",
-                "images":""
+                "link":"http://git-chris.github.io/frontend-nanodegree-resume"
             },
             {
                 "title":"Frogger",
                 "dates":"1/2015",
-                "description":"My version of Frogger. Beware of the BUGS!!!"
+                "description":"My version of Frogger. Beware of the BUGS!!!",
+                "link":" http://git-chris.github.io/frontend-nanodegree-arcade-game"
             },
             {"title":"City-Map",
              "dates":"2/2015",
-             "description":"A map with various spots in Patras"
+             "description":"A map with various spots in Patras",
+             "link":"http://git-chris.github.io/Map/public_html/"
             }
 
 ]};
@@ -164,8 +166,10 @@ projects.display=function(){
     $(".project-entry:last").append(formattedTitle);
     var formattedDates=HTMLprojectDates.replace("%data%",projects.projects[project].dates);
     $(".project-entry:last").append(formattedDates);
+    var formattedlink=HTMLprojectLink.replace("%data%",projects.projects[project].link);
+    $(".project-entry:last").append(formattedlink);
     var formatteddescription=HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-    $(".project-entry:last").append(formatteddescription);
+    $(".project-entry:last").append(formatteddescription);    
     }
 };
 
