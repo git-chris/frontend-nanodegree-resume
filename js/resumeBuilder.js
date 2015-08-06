@@ -102,7 +102,7 @@ var projects ={"projects":[{
             {"title":"City-Map",
              "dates":"2/2015",
              "description":"A map with various spots in Patras",
-             "link":"http://git-chris.github.io/Map/public_html/"
+             "link":"http://git-chris.github.io/Map/public_html"
             }
 
 ]};
